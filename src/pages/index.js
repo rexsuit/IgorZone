@@ -8,9 +8,9 @@ import SEO from "../components/seo";
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <div>
+    {/* <div>
       <Link to="/ThreeTest/">THREE.js test</Link>
-    </div>
+    </div> */}
     <div>
       <Link to="/CanvasBalls/">canvas balls test</Link>
     </div>

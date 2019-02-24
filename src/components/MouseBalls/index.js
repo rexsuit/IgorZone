@@ -7,8 +7,8 @@ export default function index() {
   let ctx;
   let mouseCursor;
   let mousePos;
-  let canvasWidth = window.innerWidth;
-  let canvasHeight = window.innerHeight;
+  let canvasWidth;
+  let canvasHeight;
   let numberOfBalls = 1000;
   let balls = [];
   let mouseCursorRadius = 64;
@@ -28,6 +28,9 @@ export default function index() {
   };
 
   useEffect(() => {
+    canvasWidth = window.innerWidth;
+    canvasHeight = window.innerHeight;
+
     canvas = document.querySelector("#canvas");
     canvas.style.backgroundColor = canvasBG;
     canvas.width = canvasWidth;
