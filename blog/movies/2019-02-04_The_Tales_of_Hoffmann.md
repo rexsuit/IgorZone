@@ -16,4 +16,4 @@ It was between this movie and the animated shorts of the 2019 Oscars awards. Thi
 
 So, I didn't really understand opera before going into this movie, but I had a pretty good time watching it anyway in my disaffected mode of watching movies. It was novel, it had pretty, moving pictures and it felt like a cultural experience. I guess that's all it takes, at least when I'm in the mood for a movie at the Light Box.
 
-Seriously though, I don't get Operatic singing. I feel like I couldn't tell you a difference between a legitimate good operatic song and a parody. Everyone just sang the most mundane bits of conversation, without any rhyme or melody.
+Seriously though, what's the deal with Operatic singing? I feel even more now like it's not singing but just loudly and strangely intonating mundane bits of speech, and I feel no closer to being able tot tell you the difference between a legitimate good operatic song and a parody.
