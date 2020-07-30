@@ -8,11 +8,10 @@ import SEO from "../components/seo";
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    {/* <div>
-      <Link to="/ThreeTest/">THREE.js test</Link>
-    </div> */}
-    <div>
+    <div>{/* <Link to="/ThreeTest/">THREE.js test</Link> */}</div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <Link to="/CanvasBalls/">canvas balls test</Link>
+      <Link to="/CanvasRipples/">canvas ripples test</Link>
     </div>
   </Layout>
 );
