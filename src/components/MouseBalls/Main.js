@@ -3,31 +3,31 @@ import Mouse from './Mouse'
 import Ball from './Ball'
 
 export default function Main() {
-  let canvas
-  let ctx
-  let mouseCursor
-  let mousePos
-  let canvasWidth
-  let canvasHeight
-  let numberOfBalls = 1000
-  let balls = []
-  let mouseCursorRadius = 64
-  let canvasBG = '#18FBFF'
-  let ballsColor = '#16E8B0'
-
-  let renderFunc = () => {
-    window.requestAnimationFrame(renderFunc)
-    ctx.clearRect(0, 0, canvasWidth, canvasHeight)
-    mouseCursor.setPos(mousePos.x, mousePos.y)
-    mouseCursor.draw(ctx)
-
-    balls.forEach((ball) => {
-      ball.think(mousePos, mouseCursorRadius)
-      ball.draw(ctx)
-    })
-  }
-
   useEffect(() => {
+    let canvas
+    let ctx
+    let mouseCursor
+    let mousePos
+    let canvasWidth
+    let canvasHeight
+    let numberOfBalls = 1000
+    let balls = []
+    let mouseCursorRadius = 64
+    let canvasBG = '#18FBFF'
+    let ballsColor = '#16E8B0'
+
+    let renderFunc = () => {
+      window.requestAnimationFrame(renderFunc)
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight)
+      mouseCursor.setPos(mousePos.x, mousePos.y)
+      mouseCursor.draw(ctx)
+
+      balls.forEach((ball) => {
+        ball.think(mousePos, mouseCursorRadius)
+        ball.draw(ctx)
+      })
+    }
+
     canvasWidth = window.innerWidth
     canvasHeight = window.innerHeight
 

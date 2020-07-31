@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
-import './layout.css'
+// import './layout.css'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -18,7 +18,6 @@ const Layout = ({ children }) => (
     `}
     render={(data) => (
       <>
-        <script src="https://ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js" />
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{

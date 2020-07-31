@@ -12,6 +12,8 @@ const IndexPage = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <Link to="/CanvasBalls/">canvas balls test</Link>
       <Link to="/CanvasRipples/">canvas ripples test</Link>
+      <Link to="/ThreeTest/">Three scene from Lynda lesson</Link>
+      <Link to="/three2">Three scene from 3js fundementals</Link>
     </div>
   </Layout>
 )

@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
+import LayoutEmpty from '../components/LayoutEmpty'
+
 import * as THREE from 'three'
 // import * as dat from 'dat.gui'
 const OrbitControls = require('three-orbit-controls')(THREE)
 
-export default class Three extends Component {
-  componentDidMount() {
+const ThreeLynda = () => {
+  React.useEffect(() => {
     const getBox = (w, h, d) => {
       const geometry = new THREE.BoxGeometry(w, h, d)
-      const material = new THREE.MeshPhongMaterial({ color: 0x777777 })
+      const color = ((Math.random() * 0xffffff) << 0)
+        .toString(16)
+        .padStart(6, '0')
+      const material = new THREE.MeshPhongMaterial({ color: `#${color}` })
+      console.log({ color })
       let mesh = new THREE.Mesh(geometry, material)
       mesh.castShadow = true
 
@@ -80,21 +86,30 @@ export default class Three extends Component {
 
     const plane = getPlane(20)
     const pointLight = getPointLight(1)
+    const pointLight2 = getPointLight(2)
     const sphere = getSphere(0.05)
+    const sphere2 = getSphere(0.3)
     const boxGrid = getBoxGrid(10, 1.5)
+
+    console.log({ boxGrid })
 
     plane.name = 'plane-1'
 
     plane.rotateX(Math.PI / 2)
+    plane.position.y = -5
     pointLight.position.y = 1.25
     pointLight.intensity = 2
+    pointLight2.position.y = 1.25
+    pointLight2.intensity = 2
 
     // gui.add(pointLight, "intensity", 0, 10);
     // gui.add(pointLight.position, "y", 0, 5);
 
     scene.add(plane)
     pointLight.add(sphere)
+    pointLight2.add(sphere2)
     scene.add(pointLight)
+    scene.add(pointLight2)
     scene.add(boxGrid)
 
     const camera = new THREE.PerspectiveCamera(
@@ -117,15 +132,29 @@ export default class Three extends Component {
     document.getElementById('webgl').appendChild(renderer.domElement)
 
     let controls = new OrbitControls(camera, renderer.domElement)
-    update(renderer, scene, camera, controls)
-  }
+    update(renderer, scene, camera)
 
-  render() {
-    return (
-      <div>
-        <script src="https://ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js" />
-        <div id="webgl" />
-      </div>
-    )
-  }
+    const anim = (time) => {
+      time *= 0.001
+      boxGrid.children.forEach((box, i) => {
+        box.rotation.x = Math.sin(i + time)
+        box.rotation.y = Math.sin(i + time)
+        box.position.y = Math.sin(i + time)
+      })
+      pointLight.position.y = Math.cos(time) * 3
+      pointLight2.position.y = Math.sin(time) * 4
+      pointLight2.position.x = Math.sin(time) * 4
+      pointLight2.position.z = Math.sin(time) * 4
+      requestAnimationFrame(anim)
+    }
+    requestAnimationFrame(anim)
+  })
+
+  return (
+    <LayoutEmpty>
+      <div id="webgl" />
+    </LayoutEmpty>
+  )
 }
+
+export default ThreeLynda
