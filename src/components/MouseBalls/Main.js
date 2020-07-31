@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import Mouse from './Mouse'
-import Ball from './Ball'
+import Mouse from './mouse'
+import Ball from './ball'
 
 export default function Main() {
   useEffect(() => {
