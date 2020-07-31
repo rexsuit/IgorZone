@@ -107,6 +107,7 @@ const ThreeLynda = () => {
 
     scene.add(plane)
     pointLight.add(sphere)
+    pointLight.position.y = 5
     pointLight2.add(sphere2)
     scene.add(pointLight)
     scene.add(pointLight2)
@@ -141,7 +142,6 @@ const ThreeLynda = () => {
         box.rotation.y = Math.sin(i + time)
         box.position.y = Math.sin(i + time)
       })
-      pointLight.position.y = Math.cos(time) * 3
       pointLight2.position.y = Math.sin(time) * 4
       pointLight2.position.x = Math.sin(time) * 4
       pointLight2.position.z = Math.sin(time) * 4
