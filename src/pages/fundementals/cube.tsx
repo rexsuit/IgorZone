@@ -2,9 +2,10 @@ import React from 'react'
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import * as THREE from 'three'
-import LayoutEmpty from '../components/LayoutEmpty'
+import LayoutEmpty from '../../components/LayoutEmpty'
+import { resizeIfNeeded } from '../../util/ThreeUtils'
 
-export default function Three2() {
+export default function Cube() {
   React.useEffect(() => {
     const canvas = document.querySelector('#c') as HTMLCanvasElement
     const renderer = new THREE.WebGLRenderer({ canvas })
@@ -15,18 +16,6 @@ export default function Three2() {
     const far = 5
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
     camera.position.z = 2
-
-    const resizeRendererToDisplaySize = (renderer) => {
-      const canvas = renderer.domElement
-      const pixelRatio = window.devicePixelRatio
-      const width = (window.innerWidth * pixelRatio) | 0
-      const height = (window.innerHeight * pixelRatio) | 0
-      const needResize = canvas.width !== width || canvas.height !== height
-      if (needResize) {
-        renderer.setSize(width, height, false)
-      }
-      return needResize
-    }
 
     const boxWidth = 1
     const boxHeight = 1
@@ -51,11 +40,7 @@ export default function Three2() {
     function render(time) {
       time *= 0.001 // convert time to seconds
 
-      if (resizeRendererToDisplaySize(renderer)) {
-        const canvas = renderer.domElement
-        camera.aspect = canvas.clientWidth / canvas.clientHeight
-        camera.updateProjectionMatrix()
-      }
+      resizeIfNeeded(renderer, camera)
 
       cube.rotation.x = time
       cube.rotation.y = time
